@@ -8,3 +8,5 @@ for dirname, _, filenames in os.walk('./ball_by_ball_it20.csv'):
 
 t20=pd.read_csv('./ball_by_ball_it20.csv')
 
+t20.head()
+
