@@ -4,12 +4,12 @@ import seaborn as sb
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-import os
-for dirname, _, filenames in os.walk('/kaggle/input'):
-    for filename in filenames:
-        print(os.path.join(dirname, filename))
+# import os
+# for dirname, _, filenames in os.walk('/'):
+#     for filename in filenames:
+#         print(os.path.join(dirname, filename))
 
-t20i = pd.read_csv('/kaggle/input/ball-by-ball-it20/ball_by_ball_it20.csv')
+t20i = pd.read_csv('ball_by_ball_it20.csv')
 t20i.sample(5)
 
 t20i.columns
