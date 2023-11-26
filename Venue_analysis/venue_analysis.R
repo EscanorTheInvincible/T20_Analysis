@@ -18,7 +18,6 @@ venue_performance <- player_data %>%
   group_by(Venue) %>%
   summarise(Total_Runs = sum(Runs.From.Ball))
 
-print(str(venue_performance))
 # Create a 3D scatter plot
 # Create a numeric index for each unique venue
 venue_index <- as.numeric(factor(venue_performance$Venue))
@@ -54,6 +53,3 @@ layout(
 
 
 print(b)
-
-
-
