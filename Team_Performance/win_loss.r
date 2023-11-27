@@ -20,13 +20,17 @@ team_records <- team_records %>%
   mutate(TotalMatches = Wins + Losses,
          WinPercentage = (Wins / TotalMatches) * 100)
 
-# Print or visualize the results
-print(team_records)
+# Select only the top 20 winning countries
+top_20_winning_countries <- team_records %>%
+  top_n(20, TotalMatches)
 
-# Create a bar plot to visualize win/loss records
-a <- ggplot(team_records, aes(x = reorder(Team, -WinPercentage), y = WinPercentage)) +
+# Print or visualize the results for the top 20 winning countries
+print(top_20_winning_countries, n = 20)
+
+# Create a bar plot to visualize win/loss records for the top 20 winning countries
+a <- ggplot(top_20_winning_countries, aes(x = reorder(Team, -WinPercentage), y = WinPercentage)) +
   geom_bar(stat = "identity", fill = "green", color = "black") +
-  labs(title = "Win/Loss Records of Teams",
+  labs(title = "Top 20 Winning Countries - Win/Loss Records",
        x = "Team",
        y = "Win Percentage") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
