@@ -1,12 +1,16 @@
 
 # Install and load necessary libraries
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 # if (!requireNamespace("tidyverse", quietly = TRUE)) {
 #   install.packages("tidyverse")
 # }
 # if (!requireNamespace("lubridate", quietly = TRUE)) {
 #   install.packages("lubridate")
 # }
+<<<<<<< HEAD
 =======
 if (!requireNamespace("tidyverse", quietly = TRUE)) {
   install.packages("tidyverse")
@@ -15,6 +19,8 @@ if (!requireNamespace("lubridate", quietly = TRUE)) {
   install.packages("lubridate")
 }
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # # Load necessary libraries
 library(tidyverse)
@@ -34,10 +40,14 @@ names(t20i)
 full_name <- ''
 for (name in unique(t20i$Batter)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if ('kohli' %in% tolower(name)) {
 =======
   if ('V Kohli' %in% tolower(name)) {
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  if ('kohli' %in% tolower(name)) {
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
     full_name <- name
     break
   }
@@ -64,11 +74,16 @@ recommended_columns <- c(
 # Select only the relevant columns and rename them
 kohli_t20i <- kohli_t20i %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
   select(all_of(recommended_columns)) %>%
   setNames(gsub("\\.", "_", gsub(" ", ".", names(.))))
 =======
   select(all_of(recommended_columns))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  select(all_of(recommended_columns)) %>%
+  setNames(gsub("\\.", "_", gsub(" ", ".", names(.))))
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display a sample of Kohli's filtered data
 head(kohli_t20i, 5)
@@ -105,10 +120,14 @@ cat("Matches Played:", matches_played, "\n")
 
 # Total runs scored
 <<<<<<< HEAD
+<<<<<<< HEAD
 total_runs_scored <- sum(kohli_t20i$`Batter Runs`, na.rm = TRUE)
 =======
 total_runs_scored <- sum(kohli_t20i$`Batter.Runs`, na.rm = TRUE)
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+total_runs_scored <- sum(kohli_t20i$`Batter Runs`, na.rm = TRUE)
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 cat("Runs Scored:", total_runs_scored, "\n")
 
 # Matches played over the years
@@ -141,10 +160,14 @@ runs_by_year
 
 # Plot runs scored by year
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_runs_by_year <- ggplot(runs_by_year, aes(x = year, y = `Batter Runs`)) +
 =======
 plt_runs_by_year <- ggplot(runs_by_year, aes(x = year, y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_runs_by_year <- ggplot(runs_by_year, aes(x = year, y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_line() +
   labs(title = "Runs Scored by Year", x = "Year", y = "Runs Scored") +
   theme_minimal()
@@ -155,26 +178,36 @@ print(plt_runs_by_year)
 venue_stats <- kohli_t20i %>%
   group_by(Venue) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE),
             `Batter Balls Faced` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter Runs` / `Batter Balls Faced`, 2)) %>%
   arrange(desc(`Batter Runs`))
+<<<<<<< HEAD
 =======
   summarise(`Batter.Runs` = sum(`Batter.Runs`, na.rm = TRUE),
             `Batter Balls Faced` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter.Runs` / `Batter Balls Faced`, 2)) %>%
   arrange(desc(`Batter.Runs`))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display venue statistics
 venue_stats
 
 # Plot top 5 venues by runs scored
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_top_venues <- ggplot(head(venue_stats, 5), aes(x = reorder(Venue, -`Batter Runs`), y = `Batter Runs`)) +
 =======
 plt_top_venues <- ggplot(head(venue_stats, 5), aes(x = reorder(Venue, -`Batter.Runs`), y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_top_venues <- ggplot(head(venue_stats, 5), aes(x = reorder(Venue, -`Batter Runs`), y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_bar(stat = "identity", fill = "blue") +
   labs(title = "Top 5 Venues by Runs Scored", x = "Venue", y = "Runs Scored") +
   theme_minimal()
@@ -185,6 +218,7 @@ print(plt_top_venues)
 runs_by_innings <- kohli_t20i %>%
   group_by(Innings) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE),
             `Batter Balls Faced` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter Runs` / `Batter Balls Faced`, 2))
@@ -193,16 +227,25 @@ runs_by_innings <- kohli_t20i %>%
             `Batter Balls Faced` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter.Runs` / `Batter Balls Faced`, 2))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE),
+            `Batter Balls Faced` = n()) %>%
+  mutate(`Strike Rate` = round(100 * `Batter Runs` / `Batter Balls Faced`, 2))
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display runs by innings
 runs_by_innings
 
 # Plot runs by innings
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_runs_by_innings <- ggplot(runs_by_innings, aes(x = factor(Innings), y = `Batter Runs`)) +
 =======
 plt_runs_by_innings <- ggplot(runs_by_innings, aes(x = factor(Innings), y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_runs_by_innings <- ggplot(runs_by_innings, aes(x = factor(Innings), y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_bar(stat = "identity", fill = "blue") +
   labs(title = "Runs by Innings", x = "Innings", y = "Runs Scored") +
   theme_minimal()
@@ -213,22 +256,31 @@ print(plt_runs_by_innings)
 over_runs <- kohli_t20i %>%
   group_by(Over) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE)) %>%
   arrange(desc(`Batter Runs`))
 =======
   summarise(`Batter.Runs` = sum(`Batter.Runs`, na.rm = TRUE)) %>%
   arrange(desc(`Batter.Runs`))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE)) %>%
+  arrange(desc(`Batter Runs`))
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display runs by over
 over_runs
 
 # Continue plotting top 5 overs by runs scored
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_top_overs <- ggplot(head(over_runs, 5), aes(x = reorder(Over, -`Batter Runs`), y = `Batter Runs`)) +
 =======
 plt_top_overs <- ggplot(head(over_runs, 5), aes(x = reorder(Over, -`Batter.Runs`), y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_top_overs <- ggplot(head(over_runs, 5), aes(x = reorder(Over, -`Batter Runs`), y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_bar(stat = "identity", fill = "blue") +
   labs(title = "Top 5 Overs by Runs Scored", x = "Over", y = "Runs Scored") +
   theme_minimal()
@@ -239,26 +291,36 @@ print(plt_top_overs)
 runs_bowlers <- kohli_t20i %>%
   group_by(Bowler) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE),
             `Match ID` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter Runs` / `Match ID`, 2)) %>%
   arrange(desc(`Batter Runs`, `Strike Rate`))
+<<<<<<< HEAD
 =======
   summarise(`Batter.Runs` = sum(`Batter.Runs`, na.rm = TRUE),
             `Match ID` = n()) %>%
   mutate(`Strike Rate` = round(100 * `Batter.Runs` / `Match ID`, 2)) %>%
   arrange(desc(`Batter.Runs`))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display runs by bowlers
 runs_bowlers
 
 # Plot top 5 bowlers by runs scored
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_top_bowlers <- ggplot(head(runs_bowlers, 5), aes(x = reorder(Bowler, -`Batter Runs`), y = `Batter Runs`)) +
 =======
 plt_top_bowlers <- ggplot(head(runs_bowlers, 5), aes(x = reorder(Bowler, -`Batter.Runs`), y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_top_bowlers <- ggplot(head(runs_bowlers, 5), aes(x = reorder(Bowler, -`Batter Runs`), y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_bar(stat = "identity", fill = "viridis") +
   labs(title = "Top 5 Bowlers by Runs Scored", x = "Bowler", y = "Runs Scored") +
   theme_minimal()
@@ -267,10 +329,14 @@ print(plt_top_bowlers)
 
 # Total fours
 <<<<<<< HEAD
+<<<<<<< HEAD
 total_fours <- sum(kohli_t20i$`Batter Runs` == 4, na.rm = TRUE)
 =======
 total_fours <- sum(kohli_t20i$`Batter.Runs` == 4, na.rm = TRUE)
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+total_fours <- sum(kohli_t20i$`Batter Runs` == 4, na.rm = TRUE)
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 cat("Total Fours:", total_fours, "\n")
 
 # Percentage of runs by fours
@@ -280,12 +346,17 @@ cat("Percentage Runs By Fours:", percentage_runs_by_fours, "%\n")
 # Runs distribution
 runs_dist <- data.frame(
 <<<<<<< HEAD
+<<<<<<< HEAD
   Runs = table(kohli_t20i$`Batter Runs`),
   Percentage_Contribution = round(100 * table(kohli_t20i$`Batter Runs`) * as.numeric(names(table(kohli_t20i$`Batter Runs`))) / total_runs_scored, 2)
 =======
   Runs = table(kohli_t20i$`Batter.Runs`),
   Percentage_Contribution = round(100 * table(kohli_t20i$`Batter.Runs`) * as.numeric(names(table(kohli_t20i$`Batter.Runs`))) / total_runs_scored, 2)
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  Runs = table(kohli_t20i$`Batter Runs`),
+  Percentage_Contribution = round(100 * table(kohli_t20i$`Batter Runs`) * as.numeric(names(table(kohli_t20i$`Batter Runs`))) / total_runs_scored, 2)
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 )
 
 # Display runs distribution
@@ -297,10 +368,14 @@ plt_runs_distribution <- pie(runs_dist$Runs, labels = c('Dots', 'Singles', 'Doub
 
 # Total sixes
 <<<<<<< HEAD
+<<<<<<< HEAD
 total_sixes <- sum(kohli_t20i$`Batter Runs` == 6, na.rm = TRUE)
 =======
 total_sixes <- sum(kohli_t20i$`Batter.Runs` == 6, na.rm = TRUE)
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+total_sixes <- sum(kohli_t20i$`Batter Runs` == 6, na.rm = TRUE)
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 cat("Total Sixes:", total_sixes, "\n")
 
 # Percentage of runs by sixes
@@ -332,10 +407,14 @@ match_data <- list()
 for (index in 1:nrow(kohli_t20i)) {
   match_id <- kohli_t20i$`Match ID`[index]
 <<<<<<< HEAD
+<<<<<<< HEAD
   runs <- kohli_t20i$`Batter Runs`[index]
 =======
   runs <- kohli_t20i$`Batter.Runs`[index]
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  runs <- kohli_t20i$`Batter Runs`[index]
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   is_wicket <- kohli_t20i$Wicket[index]
   winner <- kohli_t20i$Winner[index]
   
@@ -393,20 +472,28 @@ chased_matches <- subset(kohli_t20i, `Chased Successfully` == 1)
 chased_matches <- chased_matches %>%
   group_by(`Match ID`) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE))
 =======
   summarise(`Batter.Runs` = sum(`Batter.Runs`, na.rm = TRUE))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE))
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display runs scored by Kohli in chased matches
 head(chased_matches)
 
 # Percentage of matches won while chasing with fifties
 <<<<<<< HEAD
+<<<<<<< HEAD
 percentage_chased_matches_won_with_fifties <- 100 * sum(chased_matches$`Batter Runs` >= 50) / matches_played
 =======
 percentage_chased_matches_won_with_fifties <- 100 * sum(chased_matches$`Batter.Runs` >= 50) / matches_played
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+percentage_chased_matches_won_with_fifties <- 100 * sum(chased_matches$`Batter Runs` >= 50) / matches_played
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 cat("Percentage of Matches Won with Fifties while Chasing:", percentage_chased_matches_won_with_fifties, "%\n")
 
 # Runs against all opponents
@@ -414,22 +501,31 @@ runs_by_opponent <- kohli_t20i %>%
   filter(`Bat Second` != 'India') %>%
   group_by(`Bat Second`) %>%
 <<<<<<< HEAD
+<<<<<<< HEAD
   summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE)) %>%
   arrange(desc(`Batter Runs`))
 =======
   summarise(`Batter.Runs` = sum(`Batter.Runs`, na.rm = TRUE)) %>%
   arrange(desc(`Batter.Runs`))
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+  summarise(`Batter Runs` = sum(`Batter Runs`, na.rm = TRUE)) %>%
+  arrange(desc(`Batter Runs`))
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
 
 # Display runs scored against opponents
 runs_by_opponent
 
 # Plot runs scored against opponents
 <<<<<<< HEAD
+<<<<<<< HEAD
 plt_runs_against_opponents <- ggplot(head(runs_by_opponent, 10), aes(x = reorder(`Bat Second`, -`Batter Runs`), y = `Batter Runs`)) +
 =======
 plt_runs_against_opponents <- ggplot(head(runs_by_opponent, 10), aes(x = reorder(`Bat Second`, -`Batter.Runs`), y = `Batter.Runs`)) +
 >>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
+=======
+plt_runs_against_opponents <- ggplot(head(runs_by_opponent, 10), aes(x = reorder(`Bat Second`, -`Batter Runs`), y = `Batter Runs`)) +
+>>>>>>> ae2935071111bd5d782d1471baa4d25544dd984c
   geom_bar(stat = "identity", fill = "blue") +
   labs(title = "Runs Scored Against Opponents", x = "Opponent", y = "Runs Scored") +
   theme_minimal() +
