@@ -5,7 +5,11 @@ library(plotly)
 library(tidyverse)
 library(scatterplot3d)
 
+<<<<<<< HEAD
 player_name <- "V Kohli"
+=======
+player_name <- readline("Target Player : ")
+>>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
 # Read your CSV file
 cricket_data <- read.csv("ball_by_ball_it20.csv")
 # print(summary(cricket_data))

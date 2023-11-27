@@ -5,7 +5,11 @@ library(plotly)
 cricket_data <- read.csv("ball_by_ball_it20.csv")
 
 # Filter data for batsmen from a specific country (e.g., India)
+<<<<<<< HEAD
 country_of_interest <- "Australia"
+=======
+country_of_interest <- readline("Target Country : ")
+>>>>>>> 7fa300a8df7152f67a02449fcadc1ee5573836ac
 batsmen_data <- cricket_data %>%
   filter((Bat.First == country_of_interest & Innings == 1)| (Bat.Second == country_of_interest & Innings == 2)) %>%
   select(Batter, Batter.Runs)
