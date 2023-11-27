@@ -43,5 +43,3 @@ for (col in key_numeric_columns) {
 plots_list2[[col]] <- a
 }
 grid.arrange(grobs = c(plots_list,plots_list2), ncol = 2)  # Adjust ncol as needed
-
-
