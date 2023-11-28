@@ -5,7 +5,7 @@ library(plotly)
 
 # Inputs
 target_player <- readline("Target Batsman : ")
-target_country <- readline("Target Batsman : ")
+target_country <- readline("Target Country : ")
 
 # Read your CSV file
 cricket_data <- read.csv("ball_by_ball_it20.csv")
