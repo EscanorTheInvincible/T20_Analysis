@@ -97,13 +97,18 @@ t20i_df <- t20i_df[, !(names(t20i_df) %in% c('Bat.First', 'Bat.Second'))]
 # Display the first few rows of the encoded data
 # print(head(t20i_df))
 
-# Assuming you have a data frame named df
-
-# Assuming you have a data frame named df
 
 # Load the required library
 library(randomForest)
 
+df <- t20i_df
+num_cols <- ncol(df)
+
+# Drop the last 6 columns
+df <- df[, 1:(num_cols - 6)]
+df <- df[, c((7:ncol(df)), (1:6))]
+colnames(df) <- gsub(" ", "_", colnames(df))
+df <- head(df,10000)
 # Separate features and labels
 features <- df[, !(names(df) %in% c('Target.Score'))]
 labels <- df$Target.Score
@@ -121,7 +126,7 @@ cat("Training Set:", dim(train_features), "\n")
 cat("Testing Set:", dim(test_features), "\n")
 
 # Train a decision tree model
-tree_model <- randomForest(train_labels ~ ., data = cbind(train_labels, train_features))
+tree_model <- randomForest(train_labels ~ ., data = train_features)
 
 # Evaluate the model on the training set
 train_score_tree <- cor(tree_model$predicted, train_labels)^2 * 100
@@ -132,8 +137,25 @@ predictions <- predict(tree_model, newdata = cbind(test_labels, test_features))
 # Evaluate the model on the testing set
 test_score_tree <- cor(predictions, test_labels)^2 * 100
 
+print(test_score_tree)
+
 # Print the scores
 cat("Train Score:", round(train_score_tree, 2), "%\n")
 cat("Test Score:", round(test_score_tree, 2), "%\n")
 
+# Calculate Mean Absolute Error (MAE)
+mae_value <- mean(abs(predictions - test_labels))
+cat("Mean Absolute Error (MAE):", mae_value, "\n")
+
+# Calculate Mean Squared Error (MSE)
+mse_value <- mean((predictions - test_labels)^2)
+cat("Mean Squared Error (MSE):", mse_value, "\n")
+
+# Calculate Root Mean Squared Error (RMSE)
+rmse_value <- sqrt(mse_value)
+cat("Root Mean Squared Error (RMSE):", rmse_value, "\n")
+
+# Save the model to a file
+filename <- "random_forest_model.rds"
+saveRDS(tree_model, file = filename)
 
