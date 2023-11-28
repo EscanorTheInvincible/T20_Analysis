@@ -69,12 +69,14 @@ cat("After Removing Overs:", dim(t20i_df), "\n")
 # Display the head of the dataframe
 # print(head(t20i_df))
 
+# Select numerical columns
+numerical_t20i_df <- subset(t20i_df, select = c(overs, Innings.Runs, Target.Score, runs_last_5_overs, wickets_last_5_overs))
+
+# Compute correlation matrix
+cor_matrix <- cor(numerical_t20i_df)
+
 # Display interactive heatmap using heatmaply
-# print(heatmaply(cor_matrix, annot = TRUE))
-
-# Assuming you have a data frame named t20i_df
-
-# Assuming you have a data frame named t20i_df
+print(heatmaply(cor_matrix, annot = TRUE))
 
 # Load the required library
 library(caret)
