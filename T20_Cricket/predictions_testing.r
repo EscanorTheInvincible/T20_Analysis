@@ -33,7 +33,7 @@ generate_test_data <- function() {
     runs_last_5_overs = c(57, 67, 73, 83, 78, 67),
     wickets_last_5_overs = c(1, 0, 0, 0, 2, 2)
   )
-  
+
   return(test_data)
 }
 

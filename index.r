@@ -1,4 +1,4 @@
-install.packages("dplyr", "ggplot2", "plotly", "grideextra", "dplyr", "tidyverse")
+install.packages("dplyr", "ggplot2", "plotly", "grideextra", "tidyverse","tidyr","heatmaply","randomForest","caret")
 library(dplyr)
 # Function to perform analysis based on user input
 perform_analysis <- function(choice) {
