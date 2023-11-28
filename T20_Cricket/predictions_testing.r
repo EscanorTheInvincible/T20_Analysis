@@ -1,3 +1,4 @@
+library(randomForest)
 generate_test_data <- function() {
   # Create a data frame with the specified structure
   test_data <- data.frame(
