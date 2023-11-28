@@ -27,10 +27,12 @@ player_metrics <- ball_by_ball_data %>%
 head(player_metrics)
 
 # Create a scatter plot using plotly
-scatter_plot <- plot_ly(player_metrics, x = ~Total_Runs, y = ~Strike_Rate * 100,
-                        text = ~Batter, mode = "markers", marker = list(size = 10),
-                        color = ~Length_of_Rows, colors = "blue",
-                        type = "scatter", source = "scatter")
+scatter_plot <- plot_ly(player_metrics,
+  x = ~Total_Runs, y = ~ Strike_Rate * 100,
+  text = ~Batter, mode = "markers", marker = list(size = 10),
+  color = ~Length_of_Rows, colors = "blue",
+  type = "scatter", source = "scatter"
+)
 
 # Add labels and titles
 scatter_plot <- scatter_plot %>% layout(

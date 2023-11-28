@@ -15,7 +15,7 @@ a <- plot_ly(
   x = ~Bowler,
   y = ~Total_Runs_Conceded,
   type = "bar",
-  text = ~paste("Bowler: ", Bowler, "<br>Total Runs Conceded: ", Total_Runs_Conceded),
+  text = ~ paste("Bowler: ", Bowler, "<br>Total Runs Conceded: ", Total_Runs_Conceded),
   hoverinfo = "text"
 ) %>%
   layout(

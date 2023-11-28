@@ -1,5 +1,7 @@
 library(dplyr)
 library(heatmaply)
+library(randomForest)
+library(caret)
 
 # Importing dataset
 t20i_df <- read.csv('ball_by_ball_it20.csv')
@@ -78,9 +80,6 @@ cor_matrix <- cor(numerical_t20i_df)
 # Display interactive heatmap using heatmaply
 print(heatmaply(cor_matrix, annot = TRUE))
 
-# Load the required library
-library(caret)
-
 # Convert 'Bat_First' and 'Bat_Second' columns to factors
 for (col in c('Bat.First', 'Bat.Second')) {
   t20i_df[[col]] <- factor(t20i_df[[col]])
@@ -98,10 +97,6 @@ t20i_df <- t20i_df[, !(names(t20i_df) %in% c('Bat.First', 'Bat.Second'))]
 
 # Display the first few rows of the encoded data
 # print(head(t20i_df))
-
-
-# Load the required library
-library(randomForest)
 
 df <- t20i_df
 num_cols <- ncol(df)

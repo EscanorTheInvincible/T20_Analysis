@@ -1,4 +1,3 @@
-
 # Read your CSV file
 cricket_data <- read.csv("ball_by_ball_it20.csv")
 
@@ -35,9 +34,9 @@ plotly_scatter <- plot_ly(
   x = ~Total_Batting_Runs,
   y = ~Total_Bowling_Runs_Conceded,
   text = ~Batter,
-  mode = 'markers',
-  type = 'scatter',
-  marker = list(size = 10, color = 'blue')
+  mode = "markers",
+  type = "scatter",
+  marker = list(size = 10, color = "blue")
 )
 
 # Add axis labels and title

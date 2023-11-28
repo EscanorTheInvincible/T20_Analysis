@@ -38,7 +38,7 @@ a <- plot_ly(
   x = ~Bowler,
   y = ~Dismissals,
   type = "bar",
-  text = ~paste("Bowler: ", Bowler, "<br>Dismissals: ", Dismissals, "<br>Country: ", target_country),
+  text = ~ paste("Bowler: ", Bowler, "<br>Dismissals: ", Dismissals, "<br>Country: ", target_country),
   hoverinfo = "text"
 ) %>%
   layout(

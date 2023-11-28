@@ -12,13 +12,17 @@ cricket_data <- cricket_data %>%
 # Calculate win/loss records for each team
 team_records <- cricket_data %>%
   group_by(Team = ifelse(Result == "Win", Bat.First, Bat.Second)) %>%
-  summarise(Wins = sum(Result == "Win"),
-            Losses = sum(Result == "Loss"))
+  summarise(
+    Wins = sum(Result == "Win"),
+    Losses = sum(Result == "Loss")
+  )
 
 # Calculate total matches played by each team
 team_records <- team_records %>%
-  mutate(TotalMatches = Wins + Losses,
-         WinPercentage = (Wins / TotalMatches) * 100)
+  mutate(
+    TotalMatches = Wins + Losses,
+    WinPercentage = (Wins / TotalMatches) * 100
+  )
 
 # Select only the top 20 winning countries
 top_20_winning_countries <- team_records %>%
@@ -30,8 +34,10 @@ print(top_20_winning_countries, n = 20)
 # Create a bar plot to visualize win/loss records for the top 20 winning countries
 a <- ggplot(top_20_winning_countries, aes(x = reorder(Team, -WinPercentage), y = WinPercentage)) +
   geom_bar(stat = "identity", fill = "green", color = "black") +
-  labs(title = "Top 20 Winning Countries - Win/Loss Records",
-       x = "Team",
-       y = "Win Percentage") +
+  labs(
+    title = "Top 20 Winning Countries - Win/Loss Records",
+    x = "Team",
+    y = "Win Percentage"
+  ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 print(a)

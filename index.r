@@ -1,4 +1,4 @@
-install.packages("dplyr","ggplot2","plotly","grideextra","dplyr","tidyverse")
+install.packages("dplyr", "ggplot2", "plotly", "grideextra", "dplyr", "tidyverse")
 library(dplyr)
 # Function to perform analysis based on user input
 perform_analysis <- function(choice) {
@@ -11,14 +11,13 @@ perform_analysis <- function(choice) {
     ch <- readline("Enter Choice : ")
 
     result <- case_when(
-    ch == "1" ~ "Team_Performance\\average_score.r",
-    ch == "2" ~ "Team_Performance\\batting_order.r",
-    ch == "3" ~ "Team_Performance\\extras_impact.r",
-    ch == "4" ~ "Team_Performance\\win_loss.r",
-    TRUE ~ "Venue_analysis\\win_loss.r"
-  )
-  source(result)
-
+      ch == "1" ~ "Team_Performance\\average_score.r",
+      ch == "2" ~ "Team_Performance\\batting_order.r",
+      ch == "3" ~ "Team_Performance\\extras_impact.r",
+      ch == "4" ~ "Team_Performance\\win_loss.r",
+      TRUE ~ "Venue_analysis\\win_loss.r"
+    )
+    source(result)
   } else if (choice == "2") {
     cat("1. Batsman Analysis \n")
     cat("2. Bowler Analysis \n")
@@ -28,21 +27,19 @@ perform_analysis <- function(choice) {
     ch <- readline("Enter Choice : ")
 
     result <- case_when(
-    ch == "1" ~ "Venue_analysis\\batsman_analysis.r",
-    ch == "2" ~ "Venue_analysis\\bowler_analysis.r",
-    ch == "3" ~ "Venue_analysis\\correlation.r",
-    ch == "4" ~ "Venue_analysis\\player_performance.r",
-    ch == "5" ~ "Venue_analysis\\venue_analysis.r",
-    TRUE ~ "Venue_analysis\\venue_analysis.r"
-  )
-  source(result)
-    }
-    else if (choice == "3"){
+      ch == "1" ~ "Venue_analysis\\batsman_analysis.r",
+      ch == "2" ~ "Venue_analysis\\bowler_analysis.r",
+      ch == "3" ~ "Venue_analysis\\correlation.r",
+      ch == "4" ~ "Venue_analysis\\player_performance.r",
+      ch == "5" ~ "Venue_analysis\\venue_analysis.r",
+      TRUE ~ "Venue_analysis\\venue_analysis.r"
+    )
+    source(result)
+  } else if (choice == "3") {
 
-    }
-    else{
-      source("eda.r")
-    }
+  } else {
+    source("eda.r")
+  }
 }
 # Main script
 cat("\n\nWelcome to the Analysis Menu\n")

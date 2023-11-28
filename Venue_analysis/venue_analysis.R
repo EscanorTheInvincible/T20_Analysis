@@ -1,9 +1,5 @@
-# Install and load required packages
-# Install and load the required packages
-
 library(plotly)
 library(tidyverse)
-library(scatterplot3d)
 
 player_name <- readline("Target Player : ")
 # Read your CSV file
@@ -18,38 +14,37 @@ venue_performance <- player_data %>%
   group_by(Venue) %>%
   summarise(Total_Runs = sum(Runs.From.Ball))
 
-# Create a 3D scatter plot
 # Create a numeric index for each unique venue
 venue_index <- as.numeric(factor(venue_performance$Venue))
 
 # Create a 2D scatter plot
 a <- plot_ly(
   x = ~venue_index,
-  y = ~venue_performance$Total_Runs,
+  y = ~ venue_performance$Total_Runs,
   type = "scatter",
   mode = "markers",
   marker = list(color = "blue", size = 5),
   text = venue_performance$Venue,
-)  %>%
-layout(
-  title = sprintf("%s Performance in Different Venues",player_name),
-  xaxis = list(title = "Venue"),
-  yaxis = list(title = "Total Runs")
-)
+) %>%
+  layout(
+    title = sprintf("%s Performance in Different Venues", player_name),
+    xaxis = list(title = "Venue"),
+    yaxis = list(title = "Total Runs")
+  )
 print(a)
 
 b <- plot_ly(
   x = ~venue_index,
-  y = ~venue_performance$Total_Runs,
+  y = ~ venue_performance$Total_Runs,
   type = "bar",
   marker = list(color = "blue"),
   text = venue_performance$Venue,
-)  %>%
-layout(
-  title = sprintf("%s Performance in Different Venues",player_name),
-  xaxis = list(title = "Venue"),
-  yaxis = list(title = "Total Runs")
-)
+) %>%
+  layout(
+    title = sprintf("%s Performance in Different Venues", player_name),
+    xaxis = list(title = "Venue"),
+    yaxis = list(title = "Total Runs")
+  )
 
 
 print(b)

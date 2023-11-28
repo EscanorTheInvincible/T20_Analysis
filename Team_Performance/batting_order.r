@@ -1,5 +1,4 @@
 # Install and load required packages
-install.packages(c("dplyr", "ggplot2"))
 library(dplyr)
 library(ggplot2)
 
@@ -33,11 +32,15 @@ top_20_batting_performances <- complete_innings %>%
 print(top_20_batting_performances)
 
 # Box plot to compare innings runs when batting first or second for the top 20 batting performances
-a <- ggplot(complete_innings %>% filter(Bat.First %in% top_20_batting_performances$Bat.First),
-            aes(x = as.factor(Bat.First), y = Innings.Runs)) +
+a <- ggplot(
+  complete_innings %>% filter(Bat.First %in% top_20_batting_performances$Bat.First),
+  aes(x = as.factor(Bat.First), y = Innings.Runs)
+) +
   geom_boxplot(fill = "lightblue", color = "blue") +
-  labs(title = "Comparison of Innings Runs for Top 20 Batting Performances",
-       x = "Batting First (0) / Batting Second (1)", y = "Innings Runs") +
+  labs(
+    title = "Comparison of Innings Runs for Top 20 Batting Performances",
+    x = "Batting First (0) / Batting Second (1)", y = "Innings Runs"
+  ) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
 print(a)

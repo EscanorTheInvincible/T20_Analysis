@@ -16,7 +16,7 @@ print("Summary Statistics:")
 print(summary_stats)
 
 # Distribution of numerical columns
-numeric_columns <- c("Batter.Runs","Innings.Runs","Target.Score")
+numeric_columns <- c("Batter.Runs", "Innings.Runs", "Target.Score")
 
 # Create a list to store the plots
 plots_list <- list()
@@ -26,10 +26,8 @@ for (col in numeric_columns) {
     labs(title = paste("Histogram of", col), x = col, y = "Frequency") +
     theme_minimal() +
     theme(plot.title = element_text(hjust = 0.5))
-plots_list[[col]] <- a
+  plots_list[[col]] <- a
 }
-# Plot all histograms together
-# grid.arrange(grobs = plots_list, ncol = 2)  # Adjust ncol as needed
 
 # Box plots for key numerical columns (replace "Numeric_Column" with actual column name)
 key_numeric_columns <- c("Innings.Runs", "Innings.Wickets", "Bowler.Runs.Conceded")
@@ -40,6 +38,6 @@ for (col in key_numeric_columns) {
     labs(title = paste("Box Plot of", col), x = NULL, y = col) +
     theme_minimal() +
     theme(plot.title = element_text(hjust = 0.5))
-plots_list2[[col]] <- a
+  plots_list2[[col]] <- a
 }
-grid.arrange(grobs = c(plots_list,plots_list2), ncol = 2)  # Adjust ncol as needed
+grid.arrange(grobs = c(plots_list, plots_list2), ncol = 2) # Adjust ncol as needed
