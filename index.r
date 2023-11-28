@@ -39,6 +39,19 @@ perform_analysis <- function(choice) {
     }
     else if (choice == "3"){
 
+       cat("1. Predictions Testing \n")
+    cat("2. T20 Cricket \n")
+    cat("3. Total Runs Predictor \n")
+    ch <- readline("Enter Choice : ")
+
+    result <- case_when(
+    ch == "1" ~ "T20_Cricket\\predictions_testing.r",
+    ch == "2" ~ "T20_Cricket\\T20_Cricket.r",
+    ch == "3" ~ "T20_Cricket\\total_runs_predictor.r",
+    TRUE ~ "T20_Cricket\\total_runs_predictor.r3"
+  )
+  source(result)
+
     }
     else{
       source("eda.r")
